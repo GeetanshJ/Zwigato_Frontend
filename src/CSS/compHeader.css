@@ -1,0 +1,51 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ff5656;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.location select {
+    
+    padding: 16px 75px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.user-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.login, .register {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login:hover, .register:hover {
+    background-color: #0056b3;
+}
+
+.hamburger {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    cursor: pointer;
+    display: none;
+}
