@@ -1,0 +1,153 @@
+/* Partner.css */
+
+.page {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Partner section styles */
+
+/* Partner.css */
+
+.partner-section {
+  background-image: url('../assets/partner.jpg'); /* Update the path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Soft shadow */
+  font-family: 'Roboto', sans-serif; /* Use Roboto font */
+  color: #e1d3d3; /* Dark text color */
+  text-align: center; /* Center align text */
+}
+
+.partner-section h2 {
+  font-size: 36px; /* Large font size */
+  text-align: center; /* Align to left */
+  margin-bottom: 10px; /* Add some bottom margin */
+}
+
+.partner-section p {
+  font-family: 'Arial', sans-serif; /* Different font */
+  font-size: 18px; /* Medium font size */
+  margin-bottom: 15px; /* Add some bottom margin */
+}
+
+.partner-section button {
+  color: #ccc;
+  font-family: arial;
+  font-size: 20px;
+  padding: 10px 20px;
+    background-color: #ce4a04;
+
+  margin: 10px; /* Add some margin */
+}
+
+.partner-section button:hover {
+  background-color: #0056b3; /* Darker shade of Zomato brand color */
+}
+
+.partner-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.partner-section li {
+  margin-bottom: 8px;
+}
+
+.partner-section a {
+  color: #007bff; /* Zomato brand color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.partner-section a:hover {
+  color: #0056b3; /* Darker shade of Zomato brand color */
+}
+
+/* Card partner styles */
+.card-partner {
+  background-color: #fbf6f6; /* Light gray background */
+  padding: 20px;
+  width:1440px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #ccc; /* Light gray border */
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif; /* Use Roboto font */
+  color: #333; /* Dark text color */
+}
+.card-partner h1 {
+  margin-bottom: 10px;
+  color: #cfbbbb;
+}
+
+.card-partner h3 {
+  margin-bottom: 10px;
+  color: #cfbbbb;
+}
+.card-partner p {
+  margin-bottom: 10px;
+  color: #ffffff;
+
+}
+
+.card-partner ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.card-partner li {
+  width: calc(33.33% - 10px); /* 3 columns with space between */
+  margin-bottom: 15px; /* Add some bottom margin */
+  background-color: #f8f8f8; /* Light gray background */
+  padding: 20px;
+  border-radius: 10px;}
+
+
+
+.why-zomato {
+  display: flex;
+  margin-bottom: 50px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding:  100px;
+}
+
+.why-zomato div {
+  margin-bottom: 50px;
+width:300px;
+  flex-basis: calc(33.33% - 10px); /* Each div takes 33.33% width with space between */
+  padding: 20px;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in div's total width */
+}
+
+.why-zomato h1{
+  margin-bottom:40px;
+
+}
+.why-zomato h3{
+  margin-bottom:40px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.why-zomato div p {
+  margin-bottom: 30px;
+
+  color: blue; /* Blue text color */
+  margin: 5px 0; /* Add some margin top and bottom */
+  font-size: 20px; /* Small font size */
+}

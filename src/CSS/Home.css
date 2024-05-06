@@ -1,0 +1,54 @@
+.main-navbar {
+    background-image: url('../assets/main_bg.png'); /* Update the path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar-background {
+    width: 100%;
+    padding: 20px;
+}
+
+.navbar-center-text {
+    border-radius: 10%;
+    text-align: center;
+    color: white;
+}
+
+.navbar-center-text h1 {
+    margin: 0;
+    background: none;
+    font-size: 100px;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.navbar-center-text p {
+    margin: 0;
+    font-size: 40px;
+
+}
+
+.navbar-links {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 45px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.navbar-links a:last-child {
+    margin-right: 0;
+}
