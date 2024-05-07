@@ -10,8 +10,8 @@ function Add_Hotel() {
                 <h2>Partner with Zwigato</h2>
                 <h2>Partner with Zwigato at 0% commission for the 1st month!</h2>
                 <p>And get ads worth INR 1500. Valid for new restaurant partners in select cities.</p>
-                <button>Register your restaurant</button>
-                <button>Login to view your existing restaurants</button>
+                <a href = "/Partner_Register">Register your restaurant</a>
+                <a href = "/Partner_Register">Login to view your existing restaurants</a>
                 <p>Need help? Contact +91 97-38-38-38-38</p>
             </div>
 
@@ -20,7 +20,7 @@ function Add_Hotel() {
 
                 <div className='card-partner'>
                     <h1>Get started with online ordering</h1>
-                    <h3>Please keep the documents ready for a smooth signup</h3>
+                    <h1>Please keep the documents ready for a smooth signup</h1>
                     <ul>
                         <li>&#10003; FSSAI license copy (apply now)</li>
                         <li>&#10003; PAN card copy</li>

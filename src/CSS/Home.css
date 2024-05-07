@@ -52,3 +52,51 @@
 .navbar-links a:last-child {
     margin-right: 0;
 }
+
+
+.card-delivery{
+    display: flex;
+    flex-direction: row;
+    margin:70px;
+    gap: 140px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-delivery img{
+    border-radius: 30px;
+}
+
+.card-delivery h2{
+    color: #000000;
+    font-size: 27px;
+    margin: 15px;
+    font-family: arial;
+}
+
+.card-delivery p{
+    color: #000000;
+    font-size: 17px;
+    font-family: arial;
+    margin: 15px;
+
+}
+
+.card-home{
+    text-shadow: #000000;
+    border: 1px solid rgb(114, 107, 107);
+border-radius: 30px;
+}
+
+.card-dine{
+    text-shadow: #000000;
+    border: 1px solid rgb(114, 107, 107);
+border-radius: 30px;
+}
+
+
+.card-delivery a{
+    text-decoration: none;
+}
+

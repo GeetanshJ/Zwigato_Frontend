@@ -1,17 +1,15 @@
-import React from "react";
-import "../src/css/compHeader.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../src/css/compHeader.css";
 
 function Delivery() {
     const [locations, setLocation] = useState([]);
     const [hotels, setHotel] = useState([]);
-    const [selectedLocation, setSelectedLocation] = useState(11);
+    const [categories, setCategories] = useState([]);
+    const [selectedLocation, setSelectedLocation] = useState(1);
 
     useEffect(() => {
         const fetchLocation = async () => {
@@ -25,12 +23,25 @@ function Delivery() {
         fetchLocation();
     }, []);
 
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response3 = axios.get("http://localhost:8000/categories");
+                // console.log( (await response3).data.cat )
+                setCategories((await response3).data.cat);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchCategories();
+    }, []);
+
     useEffect(() => {
         const fetchHotel = async () => {
             const response1 = await axios.get(
                 `http://localhost:8000/hotel?locationID=${selectedLocation}`
             );
-            console.log(response1.data.hotel.map(hotel => hotel.images));
             setHotel(response1.data.hotel);
         };
 
@@ -44,7 +55,7 @@ function Delivery() {
     return (
         <div>
             <div className="nav-bar">
-                <div className="title">Zwigato</div>
+                <div className="title"><a href="/" className="title">Zwigato</a></div>
 
                 <div className="location">
                     <FontAwesomeIcon
@@ -66,6 +77,20 @@ function Delivery() {
                     <div className="register">Register</div>
                 </div>
             </div>
+
+            <h1>Inspiration for your first order</h1>
+
+            <div className="categories">
+                {categories.map((cat) => (
+                    <div key={cat.categoryID} className="category">
+                        <img src={`./${cat.image}`} alt={cat.category_name} />
+                        <div className="category-logo">{cat.category_name}</div>
+                    </div>
+                ))}
+            </div>
+
+
+
             <div className="hotel-details">
                 {hotels.length > 0 && (
                     <div className="list-hotels">
@@ -76,6 +101,8 @@ function Delivery() {
                                 <div className="hotel-details">
                                     <img className="hotel-image" src={`http://localhost:8000/${hotel.images}`} alt={hotel.name} />
                                     <h2 className="hotel-name">{hotel.name}</h2>
+                                    <p className="hotel-desc">{hotel.description}</p>
+
                                     <p className="hotel-address">Address: {hotel.address}</p>
                                     <p className="hotel-contact">Contact Number: {hotel.contact_number}</p>
                                     <p className="hotel-reviews">Reviews:
@@ -87,8 +114,8 @@ function Delivery() {
                                     </p>
                                     <p className="hotel-contact"> {hotel.category_name}</p>
 
-                                    <div>
-                                        <Link to={`menu/${hotel.hotelID}`}>View Menu</Link>
+                                    <div className="view-menu">
+                                        <Link to={`/menu/${hotel.hotelID}`}>View Menu</Link>
                                     </div>
                                 </div>
                             </div>
