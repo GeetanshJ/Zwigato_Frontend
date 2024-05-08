@@ -1,8 +1,12 @@
+// Delivery.js
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick.css"; // Import the CSS for react-slick
+import "slick-carousel/slick/slick-theme.css"; // Import the theme CSS for react-slick
 import "../src/css/compHeader.css";
 
 function Delivery() {
@@ -14,8 +18,8 @@ function Delivery() {
     useEffect(() => {
         const fetchLocation = async () => {
             try {
-                const response = axios.get("http://localhost:8000/location");
-                setLocation((await response).data.locate);
+                const response = await axios.get("http://localhost:8000/location");
+                setLocation(response.data.locate);
             } catch (err) {
                 console.log(err);
             }
@@ -23,13 +27,11 @@ function Delivery() {
         fetchLocation();
     }, []);
 
-
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response3 = axios.get("http://localhost:8000/categories");
-                // console.log( (await response3).data.cat )
-                setCategories((await response3).data.cat);
+                const response3 = await axios.get("http://localhost:8000/categories");
+                setCategories(response3.data.cat);
             } catch (err) {
                 console.log(err);
             }
@@ -39,10 +41,14 @@ function Delivery() {
 
     useEffect(() => {
         const fetchHotel = async () => {
-            const response1 = await axios.get(
-                `http://localhost:8000/hotel?locationID=${selectedLocation}`
-            );
-            setHotel(response1.data.hotel);
+            try {
+                const response1 = await axios.get(
+                    `http://localhost:8000/hotel?locationID=${selectedLocation}`
+                );
+                setHotel(response1.data.hotel);
+            } catch (err) {
+                console.log(err);
+            }
         };
 
         fetchHotel();
@@ -51,6 +57,7 @@ function Delivery() {
     const handleLocationChanged = (event) => {
         setSelectedLocation(event.target.value);
     };
+
 
     return (
         <div>
@@ -81,23 +88,19 @@ function Delivery() {
             <h1>Inspiration for your first order</h1>
 
             <div className="categories">
-                {categories.map((cat) => (
-                    <div key={cat.categoryID} className="category">
-                        <img src={`./${cat.image}`} alt={cat.category_name} />
-                        <div className="category-logo">{cat.category_name}</div>
-                    </div>
-                ))}
+                    {categories.map((cat) => (
+                        <div key={cat.categoryID} className="category">
+                            <img src={`./${cat.image}`} alt={cat.category_name} />
+                            <div className="category-logo">{cat.category_name}</div>
+                        </div>
+                    ))}
             </div>
-
-
 
             <div className="hotel-details">
                 {hotels.length > 0 && (
                     <div className="list-hotels">
                         {hotels.map((hotel) => (
-
                             <div className="hotel-card" key={hotel.hotelID}>
-
                                 <div className="hotel-details">
                                     <img className="hotel-image" src={`http://localhost:8000/${hotel.images}`} alt={hotel.name} />
                                     <h2 className="hotel-name">{hotel.name}</h2>
@@ -122,7 +125,6 @@ function Delivery() {
                         ))}
                     </div>
                 )}
-
             </div>
         </div>
     );
