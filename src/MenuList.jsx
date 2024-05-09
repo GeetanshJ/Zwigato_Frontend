@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 function MenuList() {
     const { hotelID } = useParams();
@@ -11,8 +10,7 @@ function MenuList() {
         const fetchMenu = async () => {
             try {
                 const response = await axios.get(`http://localhost:8000/menu/${hotelID}`);
-                console.log(hotelID + "hotelID")
-                console.log(response.data.menu)
+
                 setMenu(response.data.menu);
             } catch (error) {
                 console.error("Error fetching menu:", error);

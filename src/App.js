@@ -6,6 +6,7 @@ import Home from './Home';
 import MenuList from "./MenuList";
 import Partner from './Partner';
 import Partner_Register from './Partner_Register';
+import Hotels_Category from './Hotels_Category';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/Partner_Register" element={<Partner_Register />} />
+          <Route path="/selectedCategories/:categoryID" element={<Hotels_Category />} />
 
         </Routes>
       </Router>

@@ -85,13 +85,15 @@ function Delivery() {
                 </div>
             </div>
 
-            <h1>Inspiration for your first order</h1>
+            <h1 className="Title_delivery">Inspiration for your first order</h1>
 
             <div className="categories">
                     {categories.map((cat) => (
                         <div key={cat.categoryID} className="category">
-                            <img src={`./${cat.image}`} alt={cat.category_name} />
-                            <div className="category-logo">{cat.category_name}</div>
+                            <Link to = {`/selectedCategories/${cat.categoryID}`}>
+                                <img src={`./${cat.image}`} alt={cat.category_name} />
+                                <div className="category-logo">{cat.category_name}</div>
+                            </Link>
                         </div>
                     ))}
             </div>
@@ -104,7 +106,6 @@ function Delivery() {
                                 <div className="hotel-details">
                                     <img className="hotel-image" src={`http://localhost:8000/${hotel.images}`} alt={hotel.name} />
                                     <h2 className="hotel-name">{hotel.name}</h2>
-                                    <p className="hotel-desc">{hotel.description}</p>
 
                                     <p className="hotel-address">Address: {hotel.address}</p>
                                     <p className="hotel-contact">Contact Number: {hotel.contact_number}</p>

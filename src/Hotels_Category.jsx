@@ -1,0 +1,64 @@
+import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "../src/css/compHeader.css"
+import axios from "axios";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
+
+function Hotels_Category() {
+    const { categoryID } = useParams();
+
+    const [cat, setCat] = useState([]);
+    useEffect(() => {
+        const fetchCat = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/selectedCategories/${categoryID}`);
+                setCat(response.data.catSelected);
+            } catch (error) {
+                console.error("Error fetching menu:", error);
+            }
+        };
+
+        fetchCat();
+    }, [categoryID]);
+    return (
+
+        <div className="hotel-details">
+            {
+            cat.length > 0 && (
+                <div className="list-hotels">
+                    {cat.map((hotel) => (
+                        <div className="hotel-card" key={hotel.hotelID}>
+                            <div className="hotel-details">
+                                <img className="hotel-image" src={`http://localhost:8000/${hotel.images}`} alt={hotel.name} />
+                                <h2 className="hotel-name">{hotel.name}</h2>
+
+                                <p className="hotel-address">Address: {hotel.address}</p>
+                                <p className="hotel-contact">Contact Number: {hotel.contact_number}</p>
+                                <p className="hotel-reviews">Reviews:
+                                    <span className="star-rating">
+                                        {[...Array(hotel.reviews)].map((_, index) => (
+                                            <FontAwesomeIcon key={index} icon={faStar} />
+                                        ))}
+                                    </span>
+                                </p>
+                                <p className="hotel-contact"> {hotel.category_name}</p>
+
+                                <div className="view-menu">
+                                    <Link to={`/menu/${hotel.hotelID}`}>View Menu</Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+
+
+    );
+}
+
+export default Hotels_Category;
