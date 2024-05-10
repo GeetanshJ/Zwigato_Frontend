@@ -30,14 +30,14 @@ function Delivery() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response3 = await axios.get("http://localhost:8000/categories");
-                setCategories(response3.data.cat);
+                const response3 = await axios.get(`http://localhost:8000/categories?locationID=${selectedLocation}`);
+                setCategories(response3.data.categories);
             } catch (err) {
                 console.log(err);
             }
         };
         fetchCategories();
-    }, []);
+    }, [selectedLocation]);
 
     useEffect(() => {
         const fetchHotel = async () => {
@@ -90,7 +90,7 @@ function Delivery() {
             <div className="categories">
                     {categories.map((cat) => (
                         <div key={cat.categoryID} className="category">
-                            <Link to = {`/selectedCategories/${cat.categoryID}`}>
+                            <Link to = {`/selectedCategories/${selectedLocation}/${cat.categoryID}`}>
                                 <img src={`./${cat.image}`} alt={cat.category_name} />
                                 <div className="category-logo">{cat.category_name}</div>
                             </Link>

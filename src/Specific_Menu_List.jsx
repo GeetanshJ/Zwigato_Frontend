@@ -3,15 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-function MenuList() {
-    const { hotelID } = useParams();
+function Specific_Menu_List() {
+    const {locationID, hotelID ,categoryID} = useParams();
+    console.log(categoryID,"categoryID specific menu")
     const [menu, setMenu] = useState([]);
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/menu/${hotelID}`);
+                const response = await axios.get(`http://localhost:8000/specificMenu/${locationID}/${hotelID}/${categoryID}`);
 
-                setMenu(response.data.menu);
+                setMenu(response.data.catHotelItemSelected);
             } catch (error) {
                 console.error("Error fetching menu:", error);
             }
@@ -19,7 +20,6 @@ function MenuList() {
 
         fetchMenu();
     }, [hotelID]);
-
     return (
         <div>
             <h2>Menu List</h2>
@@ -50,4 +50,4 @@ function MenuList() {
     );
 }
 
-export default MenuList;
+export default Specific_Menu_List;

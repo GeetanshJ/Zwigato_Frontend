@@ -48,7 +48,7 @@ function Hotels_Category() {
                                 <p className="hotel-contact"> {hotel.category_name}</p>
 
                                 <div className="view-menu">
-                                    <Link to={`/menu/${hotel.hotelID}`}>View Menu</Link>
+                                    <Link to={`/specificMenu/${hotel.locationID}/${hotel.hotelID}/${categoryID}`}>View Menu</Link>
                                 </div>
                             </div>
                         </div>
