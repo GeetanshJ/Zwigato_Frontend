@@ -9,13 +9,16 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
 function Hotels_Category() {
-    const { categoryID } = useParams();
+    const {locationID, categoryID } = useParams();
+    console.log(locationID,"location");
+    console.log(categoryID,"categoryID");
+
 
     const [cat, setCat] = useState([]);
     useEffect(() => {
         const fetchCat = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/selectedCategories/${categoryID}`);
+                const response = await axios.get(`http://localhost:8000/selectedCategories/${locationID}/${categoryID}`);
                 setCat(response.data.catSelected);
             } catch (error) {
                 console.error("Error fetching menu:", error);
@@ -23,7 +26,7 @@ function Hotels_Category() {
         };
 
         fetchCat();
-    }, [categoryID]);
+    }, [categoryID,locationID]);
     return (
 
         <div className="hotel-details">
@@ -48,7 +51,7 @@ function Hotels_Category() {
                                 <p className="hotel-contact"> {hotel.category_name}</p>
 
                                 <div className="view-menu">
-                                    <Link to={`/specificMenu/${hotel.locationID}/${hotel.hotelID}/${categoryID}`}>View Menu</Link>
+                                    <Link to={`/specificMenu/${locationID}/${hotel.hotelID}/${categoryID}`}>View Menu</Link>
                                 </div>
                             </div>
                         </div>

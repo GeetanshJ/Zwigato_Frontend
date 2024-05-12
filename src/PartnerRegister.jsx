@@ -20,7 +20,7 @@ const Partner_Register = () => {
         };
 
         fetchLocations();
-    }, []); 
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,6 +33,7 @@ const Partner_Register = () => {
         console.log(formData)
         try {
             await axios.post('http://localhost:8000/owner/hotel_details', formData, {
+
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

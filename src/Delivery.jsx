@@ -80,8 +80,8 @@ function Delivery() {
                 </div>
 
                 <div className="user-actions">
-                    <div className="login">Login</div>
-                    <div className="register">Register</div>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
                 </div>
             </div>
 

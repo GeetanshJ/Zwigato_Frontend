@@ -47,7 +47,23 @@
     display: flex;
     gap: 20px;
 }
+.user-actions a{
+    text-decoration: none;
+    background-color: #007bff;
+    color: #ffffff;
+    padding:10px 20px;
+    border-radius: 10px;
+    
+}
 
+.user-actions a:hover{
+    text-decoration: none;
+    background-color: #2600ff;
+    color: #ffffff;
+    padding:10px 20px;
+    border-radius: 10px;
+    
+}
 .login,
 .register {
     padding: 8px 20px;

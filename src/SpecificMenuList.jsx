@@ -6,6 +6,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 function Specific_Menu_List() {
     const {locationID, hotelID ,categoryID} = useParams();
     console.log(categoryID,"categoryID specific menu")
+    console.log(locationID,"locationID specific menu")
+    console.log(hotelID,"hotelID specific menu")
+
     const [menu, setMenu] = useState([]);
     useEffect(() => {
         const fetchMenu = async () => {
@@ -19,7 +22,7 @@ function Specific_Menu_List() {
         };
 
         fetchMenu();
-    }, [hotelID]);
+    }, [hotelID,locationID,categoryID]);
     return (
         <div>
             <h2>Menu List</h2>

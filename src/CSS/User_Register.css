@@ -1,0 +1,81 @@
+/* User_Register.css */
+.container{
+    background: url("../assets/main_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+
+}
+.register-container {
+    max-width: 100%;
+    margin: 10vw auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Transparent border */
+    border-radius: 10px;
+    background-color: rgba(212, 200, 200, 0.2); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Box shadow */
+    color: #ccc;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-container .error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.register-container form {
+    width: 100%; /* Full width */
+}
+
+.register-container form div {
+    margin-bottom: 15px;
+}
+
+.register-container form label {
+    font-weight: bold;
+}
+
+.register-container form input[type="text"],
+.register-container form input[type="email"],
+.register-container form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register-container form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-container form button:hover {
+    background-color: #0056b3;
+}

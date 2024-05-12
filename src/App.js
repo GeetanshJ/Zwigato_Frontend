@@ -5,9 +5,11 @@ import Delivery from "./Delivery";
 import Home from './Home';
 import MenuList from "./MenuList";
 import Partner from './Partner';
-import Partner_Register from './Partner_Register';
-import Hotels_Category from './Hotels_Category';
-import Specific_Menu_List from './Specific_Menu_List';
+import PartnerRegister from './PartnerRegister';
+import HotelsCategory from './HotelsCategory';
+import SpecificMenuList from './SpecificMenuList';
+import UserRegister from './UserRegister';
+import UserLogin from './UserLogin';
 function App() {
   return (
     <div className="App">
@@ -17,9 +19,11 @@ function App() {
           <Route path="/menu/:hotelID" element={<MenuList/>}/>
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/partner" element={<Partner />} />
-          <Route path="/Partner_Register" element={<Partner_Register />} />
-          <Route path="/selectedCategories/:categoryID" element={<Hotels_Category />} />
-          <Route path="/specificMenu/:hotelID/:categoryID" element={<Specific_Menu_List />} />
+          <Route path="/Partner_Register" element={<PartnerRegister />} />
+          <Route path="/selectedCategories/:locationID/:categoryID" element={<HotelsCategory />} />
+          <Route path="/specificMenu/:locationID/:hotelID/:categoryID" element={<SpecificMenuList />} />
+          <Route path="/register" element={<UserRegister />} />
+          {/* <Route path="/login" element={<UserLogin />} /> */}
 
         </Routes>
       </Router>
