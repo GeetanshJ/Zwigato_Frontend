@@ -19,11 +19,11 @@ function App() {
           <Route path="/menu/:hotelID" element={<MenuList/>}/>
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/partner" element={<Partner />} />
-          <Route path="/Partner_Register" element={<PartnerRegister />} />
+          <Route path="/PartnerRegister" element={<PartnerRegister />} />
           <Route path="/selectedCategories/:locationID/:categoryID" element={<HotelsCategory />} />
           <Route path="/specificMenu/:locationID/:hotelID/:categoryID" element={<SpecificMenuList />} />
           <Route path="/register" element={<UserRegister />} />
-          {/* <Route path="/login" element={<UserLogin />} /> */}
+          <Route path="/login" element={<UserLogin />} />
 
         </Routes>
       </Router>

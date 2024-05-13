@@ -1,112 +1,94 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "../src/css/Partner_Register.css"
-const Partner_Register = () => {
-    const [hotelName, setHotelName] = useState('');
+import "../src/css/PartnerRegister.css";
+import "../src/css/compHeader.css";
+
+function PartnerRegister() {
     const [address, setAddress] = useState('');
-    const [contactNumber, setContactNumber] = useState('');
-    const [locations, setLocations] = useState([]);
-    const [selectedLocation, setSelectedLocation] = useState('');
-    const [image, setImage] = useState(null);
+    const [contact, setContact] = useState();
+    const [owner, setOwner] = useState('');
+    const [location, setLocation] = useState([]);
+
+    const handleSubmit = (() => {
+        // Implement your submit logic here
+    });
 
     useEffect(() => {
-        const fetchLocations = async () => {
+        const fetchLocation = async () => {
             try {
-                const response = axios.get("http://localhost:8000/location");
-                setLocations((await response).data.locate);
+                const response = await axios.get("http://localhost:8000/location");
+                setLocation(response.data.locate);
             } catch (error) {
-                console.error('Error fetching locations:', error);
+                console.error("Error fetching locations:", error);
             }
         };
 
-        fetchLocations();
+        fetchLocation();
     }, []);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('hotel_name', hotelName);
-        formData.append('address', address);
-        formData.append('contact_number', contactNumber);
-        formData.append('location_id', selectedLocation);
-        formData.append('hotel_image', image);
-        console.log(formData)
-        try {
-            await axios.post('http://localhost:8000/owner/hotel_details', formData, {
-
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            setHotelName('');
-            setAddress('');
-            setContactNumber('');
-            setSelectedLocation('');
-            setImage(null);
-        } catch (error) {
-            console.error('Error submitting hotel details:', error);
-        }
-    };
-
-    const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
-    };
 
     return (
         <div>
-            <h2>Add Hotel Details</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="hotelName">Hotel Name:</label>
-                    <input
-                        type="text"
-                        id="hotelName"
-                        value={hotelName}
-                        onChange={(e) => setHotelName(e.target.value)}
-                    />
+            <div className="nav-bar">
+                <div className="title"><a href="/" className="title">Zwigato</a></div>
+
+
+                <div className="user-actions">
+                    <a href="/PartnerLogin">Already a Member Login Here</a>
                 </div>
-                <div>
-                    <label htmlFor="address">Address:</label>
-                    <input
-                        type="text"
-                        id="address"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
+            </div>
+
+            <div className="partner-container">
+                <div className="sub-partner-container">
+                <h1 className='h1-partner'>Register </h1>
+
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="address">Address:</label>
+                            <input
+                                type="text"
+                                id="address"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="contact">Contact Number:</label>
+                            <input
+                                type="number"
+                                id="contact"
+                                value={contact}
+                                onChange={(e) => setContact(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="owner">Hotel Owner:</label>
+                            <input
+                                type="text"
+                                id="owner"
+                                value={owner}
+                                onChange={(e) => setOwner(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="location">Location:</label>
+                            <select
+                                id="location"
+                                onChange={(e) => setLocation(e.target.value)}
+                                value={location}
+                            >
+                                {location.map((loc) => (
+                                    <option key={loc.locationID} value={loc.locationID}>
+                                        {loc.location_name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <button type="submit">Register</button>
+                    </form>
                 </div>
-                <div>
-                    <label htmlFor="contactNumber">Contact Number:</label>
-                    <input
-                        type="text"
-                        id="contactNumber"
-                        value={contactNumber}
-                        onChange={(e) => setContactNumber(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="location">Select Location:</label>
-                    <select
-                        id="location"
-                        value={selectedLocation}
-                        onChange={(e) => setSelectedLocation(e.target.value)}
-                    >
-                        <option value="">Select Location</option>
-                        {locations.map((location) => (
-                            <option key={location.locationID} value={location.locationID}>
-                                {location.location_name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="hotelImage">Upload Image:</label>
-                    <input type="file" id="hotelImage" onChange={handleImageChange} />
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+            </div>
         </div>
     );
-};
+}
 
-export default Partner_Register;
+export default PartnerRegister;

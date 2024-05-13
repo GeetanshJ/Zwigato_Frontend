@@ -9,20 +9,22 @@
     color: #fff;
     font-family: Arial, sans-serif;
 }
-.Title_delivery{
-    /* display: flex; */
+
+.Title_delivery {
     text-align: center;
     margin: 4vw auto;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     font-style: italic;
-    background: linear-gradient(45deg,orange,blue);
+    background: linear-gradient(45deg, orange, blue);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
+
 .slick-dots {
-    display: inline-block;
+    display: flex;
 }
+
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -32,6 +34,16 @@
 .title a {
     text-decoration: none;
     color: white;
+}
+
+.location {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-right: 20px; /* Add space between location and title */
+}
+
+.location img {
+    margin-right: 10px; /* Add margin between icon and text */
 }
 
 .location select {
@@ -47,23 +59,23 @@
     display: flex;
     gap: 20px;
 }
-.user-actions a{
+
+.user-actions a {
     text-decoration: none;
     background-color: #007bff;
     color: #ffffff;
-    padding:10px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
-    
 }
 
-.user-actions a:hover{
+.user-actions a:hover {
     text-decoration: none;
     background-color: #2600ff;
     color: #ffffff;
-    padding:10px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
-    
 }
+
 .login,
 .register {
     padding: 8px 20px;
@@ -146,16 +158,15 @@
     color: #ffc107;
 }
 
-.category a{
+.category a {
     text-decoration: none;
     color: #007bff;
 }
 
-.category a:hover{
+.category a:hover {
     text-decoration: none;
     color: #ff9500;
 }
-
 
 .categories {
     display: flex;
@@ -174,21 +185,16 @@
     transition: transform 0.3s ease-in-out;
 }
 
-
-.view-menu  a{
-    /* font-weight: 600; */
+.view-menu a {
     text-decoration: none;
-    color:#f76300 ;
-    /* font-family: arial; */
+    color: #f76300;
 }
 
-
-.view-menu  a:hover{
-    /* font-weight: 600; */
+.view-menu a:hover {
     text-decoration: none;
-    color:#00a1f7 ;
-    /* font-family: arial; */
+    color: #00a1f7;
 }
+
 .category:hover {
     transform: scale(1.05);
 }
@@ -201,13 +207,10 @@
     margin-bottom: 10px;
 }
 
-.category Link{
-    
-}
-
 @media only screen and (max-width: 768px) {
     .nav-bar {
-        justify-content: flex-start;
+        justify-content: center;
+        display: flex;
     }
 
     .user-actions {
@@ -220,5 +223,29 @@
 
     .list-hotels {
         justify-content: center;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .nav-bar,
+    .user-actions,
+    .login,
+    .register {
+        padding: 10px;
+    }
+
+    .location select {
+        font-size: 14px;
+    }
+
+    .location img {
+        margin-right: 0;
+    }
+
+    .location {
+        display: flex;
+        margin:0 auto /* Increase space between location and title */
     }
 }

@@ -1,5 +1,8 @@
+/* Home.css */
+
+/* Navbar styles */
 .main-navbar {
-    background-image: url('../assets/main_bg.png'); /* Update the path to your image */
+    background-image: url('../assets/main_bg.png');
     background-size: cover;
     background-position: center;
     height: 75vh;
@@ -22,8 +25,7 @@
 }
 
 .navbar-center-text h1 {
-    margin: 0;
-    background: none;
+    color: azure;
     font-size: 100px;
     font-weight: 800;
     font-style: italic;
@@ -32,7 +34,6 @@
 .navbar-center-text p {
     margin: 0;
     font-size: 40px;
-
 }
 
 .navbar-links {
@@ -53,50 +54,98 @@
     margin-right: 0;
 }
 
-
-.card-delivery{
+/* Card styles */
+.card-delivery {
     display: flex;
     flex-direction: row;
-    margin:70px;
+    margin: 70px;
     gap: 140px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.card-delivery img{
+.card-delivery img {
     border-radius: 30px;
 }
 
-.card-delivery h2{
+.card-delivery h2 {
     color: #000000;
     font-size: 27px;
     margin: 15px;
     font-family: arial;
 }
 
-.card-delivery p{
+.card-delivery p {
     color: #000000;
     font-size: 17px;
     font-family: arial;
     margin: 15px;
-
 }
 
-.card-home{
+.card-home {
     text-shadow: #000000;
     border: 1px solid rgb(114, 107, 107);
-border-radius: 30px;
+    border-radius: 30px;
 }
 
-.card-dine{
+.card-dine {
     text-shadow: #000000;
     border: 1px solid rgb(114, 107, 107);
-border-radius: 30px;
+    border-radius: 30px;
 }
 
-
-.card-delivery a{
+.card-delivery a {
     text-decoration: none;
 }
 
+/* Responsive styles */
+@media screen and (max-width: 200px) {
+    .main-navbar {
+        height: auto;
+        padding: 10px;
+    }
+
+    .navbar-background {
+        padding: 10px;
+    }
+
+    .navbar-center-text h1 {
+        font-size: 20px;
+    }
+
+    .navbar-center-text p {
+        font-size: 10px;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .card-delivery {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px;
+    }
+
+    .card-delivery a {
+        text-align: center;
+    }
+
+    .card-home,
+    .card-dine {
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .card-delivery img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .card-delivery h2,
+    .card-delivery p {
+        text-align: center;
+    }
+}
