@@ -10,8 +10,8 @@ function Add_Hotel() {
                 <h2>Partner with Zwigato</h2>
                 <h2>Partner with Zwigato at 0% commission for the 1st month!</h2>
                 <p>And get ads worth INR 1500. Valid for new restaurant partners in select cities.</p>
-                <a href = "/PartnerRegister">Register your restaurant</a>
-                <a href = "/PartnerRegister">Login to view your existing restaurants</a>
+                <a href = "/partnerRegister">Register your restaurant</a>
+                <a href = "/partnerLogin">Login to view your existing restaurants</a>
                 <p>Need help? Contact +91 97-38-38-38-38</p>
             </div>
 

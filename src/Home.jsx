@@ -1,7 +1,7 @@
 import React from 'react';
 import '../src/css/Home.css'; // Import CSS file for Navbar styling
 import order_img from '../src/assets/order_online.png'
-import dine_img from '../src/assets/dine.png'
+// import dine_img from '../s/rc/assets/dine.png'
 
 function Navbar() {
     return (
@@ -33,13 +33,13 @@ function Navbar() {
                         <p>Stay Home and Order Online</p>
                     </div>
                 </a>
-                <a href = "/">
+                {/* <a href = "/">
                     <div className='card-dine'>
                         <img src = {dine_img}/>
                         <h2>Dining</h2>
                         <p>View the Cities favourite Dining Place</p>
                     </div>
-                </a>
+                </a> */}
             </div>
         </div>
         

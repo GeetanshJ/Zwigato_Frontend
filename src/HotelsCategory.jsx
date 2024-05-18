@@ -9,9 +9,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
 function Hotels_Category() {
-    const {locationID, categoryID } = useParams();
-    console.log(locationID,"location");
-    console.log(categoryID,"categoryID");
+    const { locationID, categoryID } = useParams();
+    console.log(locationID, "location");
+    console.log(categoryID, "categoryID");
 
 
     const [cat, setCat] = useState([]);
@@ -26,38 +26,42 @@ function Hotels_Category() {
         };
 
         fetchCat();
-    }, [categoryID,locationID]);
+    }, [categoryID, locationID]);
     return (
+        <div>
 
-        <div className="hotel-details">
-            {
-            cat.length > 0 && (
-                <div className="list-hotels">
-                    {cat.map((hotel) => (
-                        <div className="hotel-card" key={hotel.hotelID}>
-                            <div className="hotel-details">
-                                <img className="hotel-image" src={`http://localhost:8000/${hotel.images}`} alt={hotel.name} />
-                                <h2 className="hotel-name">{hotel.name}</h2>
 
-                                <p className="hotel-address">Address: {hotel.address}</p>
-                                <p className="hotel-contact">Contact Number: {hotel.contact_number}</p>
-                                <p className="hotel-reviews">Reviews:
-                                    <span className="star-rating">
-                                        {[...Array(hotel.reviews)].map((_, index) => (
-                                            <FontAwesomeIcon key={index} icon={faStar} />
-                                        ))}
-                                    </span>
-                                </p>
-                                <p className="hotel-contact"> {hotel.category_name}</p>
+            <div className="hotel-details">
+                {
+                    cat.length > 0 && (
+                        <div className="list-hotels">
+                            {cat.map((hotel) => (
+                                <div className="hotel-card" key={hotel.hotelID}>
+                                    <div className="hotel-details">
+                                        <img className="hotel-image" src={`http://localhost:8000/${hotel.images}`} alt={hotel.name} />
+                                        <h2 className="hotel-name">{hotel.name}</h2>
 
-                                <div className="view-menu">
-                                    <Link to={`/specificMenu/${locationID}/${hotel.hotelID}/${categoryID}`}>View Menu</Link>
+                                        <p className="hotel-address">Address: {hotel.address}</p>
+                                        <p className="hotel-contact">Contact Number: {hotel.contact_number}</p>
+                                        <p className="hotel-reviews">Reviews:
+                                            <span className="star-rating">
+                                                {[...Array(hotel.reviews)].map((_, index) => (
+                                                    <FontAwesomeIcon key={index} icon={faStar} />
+                                                ))}
+                                            </span>
+                                        </p>
+                                        <p className="hotel-contact"> {hotel.category_name}</p>
+
+                                        <div className="view-menu">
+                                            <Link to={`/specificMenu/${locationID}/${hotel.hotelID}/${categoryID}`}>View Menu</Link>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            )}
+                    )}
+            </div>
+
         </div>
 
 
