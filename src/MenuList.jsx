@@ -8,17 +8,20 @@ function MenuList() {
     
     const { hotelID } = useParams();
     const [menu, setMenu] = useState([]);
+    const [cart, setCart] = useState([]);
     const [quantities, setQuantities] = useState({});
 
     const addToCart = (menuItem) => {
         try {
-            const existingData = sessionStorage.getItem('cart');
-            const count = quantities[menuItem.menuID] || 1;
-            menuItem.count = count;
-            const dataArray = existingData ? JSON.parse(existingData) : [];
-            dataArray.push(menuItem);
-            const updatedData = JSON.stringify(dataArray);
-            sessionStorage.setItem('cart', updatedData);
+            // const existingData = sessionStorage.getItem('cart');
+            // const count = quantities[menuItem.menuID] || 1;
+            // menuItem.count = count;
+            // const dataArray = existingData ? JSON.parse(existingData) : [];
+            // dataArray.push(menuItem);
+            // const updatedData = JSON.stringify(dataArray);
+            // sessionStorage.setItem('cart', updatedData);
+            setCart(menuItem);
+            
             window.alert("Item Added to Cart Successfully");
             console.log('Data added to session storage successfully.');
         } catch (error) {
@@ -26,7 +29,16 @@ function MenuList() {
         }
     }
 
+    const handleAddToCart = (menuItem) => {
+        if (!localStorage.getItem("user")) {
+            window.alert("Please login first.");
+        } else {
+            addToCart(menuItem);
+        }
+    };
+
     const handleIncrement = (menuID) => {
+
         setQuantities((prevQuantities) => ({
             ...prevQuantities,
             [menuID]: (prevQuantities[menuID] || 1) + 1,
@@ -60,10 +72,7 @@ function MenuList() {
                 <a href="/cart" style={{ fontSize: '20px', textDecoration: 'none', color: 'white' }}>
                     <FontAwesomeIcon icon={faCartShopping} />
                 </a>
-                <div className="user-actions">
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
-                </div>
+
             </div>
             <br />
             <h2>Menu List</h2>
@@ -89,7 +98,7 @@ function MenuList() {
                                 <button className="quantity-button" onClick={() => handleIncrement(menuItem.menuID)}>+</button>
                             </div>
                             <br />
-                            <button onClick={() => addToCart(menuItem)}> Add to Cart</button>
+                            <button onClick={() => handleAddToCart(menuItem)}> Add to Cart</button>
                         </div>
                     </div>
                 ))}
