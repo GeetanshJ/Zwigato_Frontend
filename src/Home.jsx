@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './css/Home.css'; // Import CSS file for Navbar styling
+import 'src/css/Home.css'; 
 import order_img from '../src/assets/order_online.png';
-// import dine_img from '../src/assets/dine.png';
 
 function Navbar() {
     const [user, setUser] = useState(null);
