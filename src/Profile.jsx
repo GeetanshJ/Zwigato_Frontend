@@ -5,19 +5,19 @@ import axios from 'axios';
 function Profile() {
     const [userData, setUserData] = useState({ username: '', password: '', email: '' });
 
-    useEffect(() => {
-        fetchUserData();
-    }, []);
+    // useEffect(() => {
+    //     fetchUserData();
+    // }, []);
 
-    const fetchUserData = async () => {
-        try {
+    // const fetchUserData = async () => {
+    //     try {
             const userID = localStorage.getItem("userid");
-            const response = await axios.get(`http://localhost:8000/users/${userID}`);
+            const response =  axios.get(`http://localhost:8000/users/${userID}`);
             setUserData(response.data);
-        } catch (error) {
-            console.error('Error fetching user data:', error);
-        }
-    };
+    //     } catch (error) {
+    //         console.error('Error fetching user data:', error);
+    //     }
+    // };
 
     const handleChange = (e) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });

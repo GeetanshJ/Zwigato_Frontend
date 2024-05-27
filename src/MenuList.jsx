@@ -16,18 +16,18 @@ function MenuList() {
 
 
 
-    useEffect(() => {
-        const fetchMenu = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8000/menu/${hotelID}`);
+    // useEffect(() => {
+    //     const fetchMenu = async () => {
+    //         try {
+                const response =  axios.get(`http://localhost:8000/menu/${hotelID}`);
                 setMenu(response.data.menu);
-            } catch (error) {
-                console.error("Error fetching menu:", error);
-            }
-        };
+    //         } catch (error) {
+    //             console.error("Error fetching menu:", error);
+    //         }
+    //     };
 
-        fetchMenu();
-    }, [hotelID]);
+    //     fetchMenu();
+    // }, [hotelID]);
 
     return (
         <div>
