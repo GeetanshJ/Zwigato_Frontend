@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
 function Hotels_Category() {
