@@ -1,38 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import "../src/css/cart.css";
-
-const Cart = () => {
-    const [cart, setCart] = useState([]);
-
+import '../src/css/cart.css';
+import { useLocation } from 'react-router-dom';
+function Cart(props) {
+    const [totalPrice, setTotalPrice] = useState(0);
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+  
+    const menuID = queryParams.get('menuID');
+    const menuName = queryParams.get('menu_name');
+    const price = queryParams.get('price');
+    const quantity = queryParams.get('quantity');
     useEffect(() => {
-        const fetchDataFromLocalStorage = () => {
-            try {
-                const userData = localStorage.getItem('userid');
-                if (userData) {
-                    const userId = JSON.parse(userData).id;
-                    const cartData = sessionStorage.getItem(`cart_${userId}`);
-                    if (cartData) {
-                        setCart(JSON.parse(cartData));
-                    }
-                }
-            } catch (error) {
-                console.error('Error fetching cart data:', error);
-            }
-        };
+        calculateTotalPrice();
+    }, [props.cartItems]);
 
-        fetchDataFromLocalStorage();
-    }, []);
+    const calculateTotalPrice = () => {
+        if (props.cartItems) {
+            let totalPrice = 0;
+            props.cartItems.forEach(item => {
+                totalPrice += item.price * item.quantity;
+            });
+            setTotalPrice(totalPrice);
+        }
+    };
 
-    const removeFromCart = (index) => {
-        const updatedCart = [...cart];
-        updatedCart.splice(index, 1);
-        setCart(updatedCart);
-        const userData = localStorage.getItem('userid');
-        if (userData) {
-            const userId = JSON.parse(userData).userID;
-            sessionStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
+    const removeFromCart = (menuID) => {
+        props.removeFromCart(menuID); 
+    };
+
+    // Render the cart items
+    const renderCartItems = () => {
+        if (props.cartItems) {
+            return props.cartItems.map((item, index) => (
+                <div key={index} className="cart-item">
+                    <p className="item-name">{item.menu_name}</p>
+                    <p className="item-price">Price: ${item.price}</p>
+                    <p className="item-quantity">Quantity: {item.quantity}</p>
+                    <p className="item-total-price">Total Price: ${item.price * item.quantity}</p>
+                    <button className="delete-button" onClick={() => removeFromCart(item.menuID)}>Delete</button>
+                </div>
+            ));
+        } else {
+            return <p>No items in cart</p>;
         }
     };
 
@@ -40,17 +49,12 @@ const Cart = () => {
         <div className="cart-container">
             <h2>Shopping Cart</h2>
             <div className="cart-items">
-                {cart.map((item, index) => (
-                    <div className="cart-item" key={index}>
-                        <p className="item-name">{item.menu_name}</p>
-                        <p className="item-price">Price: ${item.price}</p>
-                        <p className="item-quantity">Quantity: {item.count}</p>
-                        <FontAwesomeIcon icon={faTrash} onClick={() => removeFromCart(index)} />
-                    </div>
-                ))}
+                {renderCartItems()}
             </div>
+            <p>Total Price: ${totalPrice}</p>
+            <button className="pay-button" onClick={props.pay}>Pay</button>
         </div>
     );
-};
+}
 
 export default Cart;

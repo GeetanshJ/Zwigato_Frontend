@@ -30,6 +30,7 @@ function Navbar() {
                             <button type="button" onClick={handleLogout} >LogOut</button>
                         )}
                         <a href="/register">Register</a>
+                        <a href="/profile">Profile</a>
                     </div>
 
                     <div className="navbar-center-text">

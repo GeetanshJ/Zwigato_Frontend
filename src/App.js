@@ -13,6 +13,7 @@ import UserLogin from './UserLogin';
 import HotelRegister from './HotelRegister';
 import PartnerLogin from './PartnerLogin';
 import Cart from './Cart';
+import Profile from './Profile';
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
           <Route path="/login" element={<UserLogin />} />
           <Route path="/hotelRegister" element={<HotelRegister />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<Profile />} />
 
         </Routes>
       </Router>

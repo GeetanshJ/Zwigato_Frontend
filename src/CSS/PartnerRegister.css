@@ -5,28 +5,26 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    width: 500px;
+    width: 90%; /* Adjusted for mobile responsiveness */
     padding: 40px 10px;
     margin: 15vh auto;
     border: 1px solid #ccc;
     border-radius: 10px;
-
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
-.h1-partner{
+.h1-partner {
     font-family: arial;
     font-weight: 900;
-    padding:20px;
+    padding: 20px;
     font-style: italic;
-    background: linear-gradient(45deg,orange,blue);
+    background: linear-gradient(45deg, orange, blue);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
 
 .sub-partner-container {
-    width: 80%;
-
+    width: 90%; /* Adjusted for mobile responsiveness */
     max-width: 500px;
     margin: 0 auto;
     padding: 40px;
@@ -66,7 +64,8 @@ button:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .partner-container,
     .sub-partner-container {
-        width: 90%;
+        width: 95%; /* Adjusted for mobile responsiveness */
     }
 }
