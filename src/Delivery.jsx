@@ -16,29 +16,29 @@ function Delivery() {
     const [categories, setCategories] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(1);
 
-    // useEffect(() => {
-    //     const fetchLocation = async () => {
-    //         try {
+    useEffect(() => {
+        const fetchLocation = async () => {
+            try {
                 const response =  axios.get("http://localhost:8000/location");
                 setLocation(response.data.locate);
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     };
-    //     fetchLocation();
-    // }, []);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchLocation();
+    }, []);
 
-    // useEffect(() => {
-    //     const fetchCategories = async () => {
-    //         try {
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
                 const response3 =  axios.get(`http://localhost:8000/categories?locationID=${selectedLocation}`);
                 setCategories(response3.data.categories);
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     };
-    //     fetchCategories();
-    // }, [selectedLocation]);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchCategories();
+    }, [selectedLocation]);
 
     useEffect(() => {
         const fetchHotel = async () => {

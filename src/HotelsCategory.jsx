@@ -15,18 +15,18 @@ function Hotels_Category() {
 
 
     const [cat, setCat] = useState([]);
-    // useEffect(() => {
-    //     const fetchCat = async () => {
-    //         try {
+    useEffect(() => {
+        const fetchCat = async () => {
+            try {
                 const response =  axios.get(`http://localhost:8000/selectedCategories/${locationID}/${categoryID}`);
                 setCat(response.data.catSelected);
-    //         } catch (error) {
-    //             console.error("Error fetching menu:", error);
-    //         }
-    //     };
+            } catch (error) {
+                console.error("Error fetching menu:", error);
+            }
+        };
 
-    //     fetchCat();
-    // }, [categoryID, locationID]);
+        fetchCat();
+    }, [categoryID, locationID]);
     return (
         <div>
 

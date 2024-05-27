@@ -10,19 +10,19 @@ function Specific_Menu_List() {
     console.log(hotelID,"hotelID specific menu")
 
     const [menu, setMenu] = useState([]);
-    // useEffect(() => {
-    //     const fetchMenu = async () => {
-    //         try {
+    useEffect(() => {
+        const fetchMenu = async () => {
+            try {
                 const response =  axios.get(`http://localhost:8000/specificMenu/${locationID}/${hotelID}/${categoryID}`);
 
                 setMenu(response.data.catHotelItemSelected);
-    //         } catch (error) {
-    //             console.error("Error fetching menu:", error);
-    //         }
-    //     };
+            } catch (error) {
+                console.error("Error fetching menu:", error);
+            }
+        };
 
-    //     fetchMenu();
-    // }, [hotelID,locationID,categoryID]);
+        fetchMenu();
+    }, [hotelID,locationID,categoryID]);
     return (
         <div>
             <h2>Menu List</h2>

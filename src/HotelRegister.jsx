@@ -31,19 +31,19 @@ function HotelRegister() {
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     };
 
-    // useEffect(() => {
-    //     // Fetch locations from the server
-    //     const fetchLocations = async () => {
-    //         try {
+    useEffect(() => {
+        // Fetch locations from the server
+        const fetchLocations = async () => {
+            try {
                 const response =  axios.get(`http://localhost:8000/location`);
                 setLocations(response.data.locate);
-    //         } catch (error) {
-    //             console.error("Error fetching locations:", error);
-    //         }
-    //     };
+            } catch (error) {
+                console.error("Error fetching locations:", error);
+            }
+        };
 
-    //     fetchLocations();
-    // }, [locationID]);
+        fetchLocations();
+    }, [locationID]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
