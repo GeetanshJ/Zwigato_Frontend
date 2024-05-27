@@ -46,7 +46,7 @@ function Navbar() {
             <div className="card-delivery">
                 <a href="/delivery">
                     <div className='card-home'>
-                        <img src={order_img} alt="Order Online" />
+                        {/* <img src={order_img} alt="Order Online" /> */}
                         <h2>Order Online</h2>
                         <p>Stay Home and Order Online</p>
                     </div>
