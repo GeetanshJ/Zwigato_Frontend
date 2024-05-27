@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
+import "./css/compHeader.css"
 import axios from "axios";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
 function Hotels_Category() {

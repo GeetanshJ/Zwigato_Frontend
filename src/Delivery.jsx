@@ -5,6 +5,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "slick-carousel/slick/slick.css"; // Import the CSS for react-slick
+import "slick-carousel/slick/slick-theme.css"; // Import the theme CSS for react-slick
+import "./css/compHeader.css";
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function Delivery() {
