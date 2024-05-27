@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './css/Home.css'; // Import CSS file for Navbar styling
 import order_img from '../src/assets/order_online.png';
 // import dine_img from '../src/assets/dine.png';
 

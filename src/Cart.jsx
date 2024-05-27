@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './cart.css';
 import { useLocation } from 'react-router-dom';
 function Cart(props) {
     const [totalPrice, setTotalPrice] = useState(0);

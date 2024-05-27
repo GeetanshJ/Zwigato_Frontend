@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
-import "./css/compHeader.css"
 import axios from "axios";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

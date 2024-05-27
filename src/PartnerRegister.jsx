@@ -2,8 +2,7 @@ import React, {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
-import "./css/PartnerRegister.css";
-import "./css/compHeader.css";
+
 
 function PartnerRegister() {
     const nav = useNavigate();

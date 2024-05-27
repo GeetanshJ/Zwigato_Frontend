@@ -1,7 +1,6 @@
 // Page.jsx
 
 import React from 'react';
-import './css/Partner.css';
 
 function Add_Hotel() {
     return (

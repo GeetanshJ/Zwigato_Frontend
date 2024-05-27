@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
-import "./css/cart.css"
 import Cart_Card from "./Components/Cart_Card";
 function MenuList() {
 
